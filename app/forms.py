@@ -25,12 +25,13 @@ class AnketaForm(forms.Form):
     gender = forms.ChoiceField(label='Ваш пол',
         choices=[('1','мужской'),('2','женский')],
         widget=forms.RadioSelect, initial=1)
-    mark = forms.CharField(label='Какую марку автомобиля предпочитаете?', min_length=2, max_length=100)
+    mark = forms.CharField(label='Какую марку автомобиля хотите приобрести?', min_length=2, max_length=100)
     notice = forms.BooleanField(label='Получать новости сайта на e-mail?',
                                 required=False)
     email = forms.EmailField(label='Ваш e-mail', min_length=7)
-    feedback = forms.CharField(label='Оставьте отзыв',
+    feedback = forms.CharField(label='Ваше письмо',
                                 widget=forms.Textarea(attrs={'rows':12, 'cols':20}))
+    telephone = forms.CharField(label='Оставьте ваш номер телефона,и мы свяжемся с вами',min_length=10, max_length=12)
 
 class CommentForm (forms.ModelForm):
     class Meta:

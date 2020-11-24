@@ -5,7 +5,7 @@
 
 {% if form != None %}
 
-<br><h2>Отправьте заполненную анкету, Спасибо!</h2><br>
+<br><h2>Оставить заявку на обратную связь</h2><br>
 <div>
         <form method="POST">
             {% csrf_token %}
@@ -23,6 +23,8 @@
             {{ form.email }}<br><br>
             <label for="{{ form.feedback.id_for_label }}">{{ form.feedback.label }}:</label><br>
             {{ form.feedback }}<br><br>
+            <label for="{{ form.telephone.id_for_label }}">{{ form.telephone.label }}:</label><br>
+            {{ form.telephone }}<br><br>
             <input type="submit" value="Отправить" id="submit">
         </form>
         <script>
@@ -77,6 +79,14 @@
             {
                 $('#id_feedback').css('background', '#ddd');
          }
+                       function focus_in6()
+            {
+              $('#id_telephone').css('background', '#fff');
+         }
+          function focus_out6()
+            {
+                $('#id_telephone').css('background', '#ddd');
+         }
          $('#submit').mouseover(mouse_in);
          $('#submit').mouseout(mouse_out);
          $('#id_name').focus(focus_in);
@@ -89,21 +99,25 @@
          $('#id_mark').blur(focus_out4);
          $('#id_feedback').focus(focus_in5);
          $('#id_feedback').blur(focus_out5);
+         $('#id_telephone').focus(focus_in6);
+         $('#id_telephone').blur(focus_out6);
+
         </script>
 </div>
 {% else %}
-<br><h2>Спасибо за предоставленную информацию!</h2>
-<h3>Ваш отзыв:</h3>
+<br><h2>Спасибо за предоставленную информацию,ожидайте звонка!</h2>
+<h3>Ваша заявка:</h3>
 <ul>
         <li><span>Ваше имя</span> {{ data.name }}</li>
         <li><span>Ваш город</span> {{ data.city }}</li>
         <li><span>Ваш пол</span> {{ data.gender }}</li>
-        <li><span>Ваша предпочитаемая марка автомобиля:</span> {{ data.mark }}</li>
+        <li><span>Марка,которую вы хотите прибрести</span> {{ data.mark }}</li>
         <li><span>Получать новости на почту?:</span> 
             {{ data.notice }}
         </li>
         <li><span>Ваш e-mail:</span> {{ data.email }}</li>
-        <li><span>Ваш отзыв:</span> {{ data.feedback }}</li>
+        <li><span>Ваше письмо:</span> {{ data.feedback }}</li>
+        <li><span>Ваш номер:</span>{{ data.telephone }}</li>
 </ul>
 {% endif %}
 {% endblock %}

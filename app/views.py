@@ -83,6 +83,7 @@ def anketa(request):
                 data['notice'] = 'Нет'
             data['mark'] = form.cleaned_data['mark']
             data['email'] = form.cleaned_data['email']
+            data['telephone'] = form.cleaned_data['telephone']
             data['feedback'] = form.cleaned_data['feedback']
             form = None
     else:
@@ -91,7 +92,7 @@ def anketa(request):
         request,
         'app/anketa.html',
         {
-            'title':'Анкета',
+            'title':'Письмо',
             'form':form,
             'data':data
         }

@@ -1,1 +1,2 @@
 C:\Users\antcv\OneDrive\Рабочий стол\Аринин сайт\джанго\DjangoWebProject2\DjangoWebProject2\obj\Debug\DjangoWebProject2.pyproj.CoreCompileInputs.cache
+C:\Users\antcv\Desktop\сайт Антона\Django\DjangoWebProject2\DjangoWebProject2\obj\Debug\DjangoWebProject2.pyproj.CoreCompileInputs.cache
