@@ -14,7 +14,7 @@
     <h3>Добавить комментарий</h3>
     <form method="POST" >{% csrf_token %} {# защита от атак CSRF#}
     <div>
-        {{form.as_p}}
+        {{form.as_p}}   
         <button type="submit" class="save btn btn-default" > Отправить комментарий </button>
     </div>
     </form>

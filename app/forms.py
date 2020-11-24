@@ -36,7 +36,7 @@ class AnketaForm(forms.Form):
 class CommentForm (forms.ModelForm):
     class Meta:
         model = Comment # используемая модель
-        fields = ('text',) # требуется заполнить только поле text
+        fields = ('text',) # требуется заполнить только поле text     
         labels = {'text': "Комментарий"} # метка к полю формы text
 
 class BlogForm (forms.ModelForm):
