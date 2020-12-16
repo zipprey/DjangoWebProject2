@@ -3,10 +3,9 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Добро Пожаловать на сайт магазин авто!</h1>
+    <h1>Добро Пожаловать на сайт автолюбителей!</h1>
     <p class="lead">Здесь вы можете насладиться моим творчеством!</p>
-    <p><a href="https://www.bmw.ru/ru/all-models.html" class="btn btn-primary btn-large">Купить BMW &raquo;</a></p>
-    <p><a href="https://cars.mercedes-benz.ru/" class="btn btn-primary btn-large">Купить Mercedes-Benz &raquo;</a></p>
+    <p><a href="{% url 'about' %}" class="btn btn-primary btn-large">Погнали &raquo;</a></p>
 </div>
 {% load staticfiles %}
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="7000">

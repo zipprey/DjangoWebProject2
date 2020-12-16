@@ -1,11 +1,10 @@
-﻿
-{% extends "app/layout.html" %}
+﻿{% extends "app/layout.html" %}
 
 {% block content %}
 
 {% if form != None %}
 
-<br><h2>Оставить заявку на обратную связь</h2><br>
+<br><h2>Заполните анкету для связи с нами</h2><br>
 <div>
         <form method="POST">
             {% csrf_token %}

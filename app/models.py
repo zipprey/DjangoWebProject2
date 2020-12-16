@@ -9,7 +9,7 @@ from datetime import datetime
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-# Модель данных Блога – class Blogx
+# Модель данных Блога – class Blog
 
 class Blog(models.Model):
     title = models.CharField(max_length = 100, unique_for_date = "posted", verbose_name = "Заголовок")
@@ -32,7 +32,7 @@ class Blog(models.Model):
         verbose_name = "статья блога" 
         verbose_name_plural = "статьи блога" 
 
-admin.site.register(Blog)
+
 
 class Comment(models.Model):
     text = models.TextField(verbose_name = "Комментарий")

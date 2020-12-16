@@ -31,6 +31,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
@@ -42,6 +45,23 @@
     <Compile Include="DjangoWebProject2\settings.py" />
     <Compile Include="DjangoWebProject2\urls.py" />
     <Compile Include="DjangoWebProject2\wsgi.py" />
+    <Compile Include="orders\admin.py" />
+    <Compile Include="orders\context_processors.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="orders\forms.py" />
+    <Compile Include="orders\migrations\__init__.py" />
+    <Compile Include="orders\models.py" />
+    <Compile Include="orders\urls.py" />
+    <Compile Include="orders\views.py" />
+    <Compile Include="orders\__init__.py" />
+    <Compile Include="products\admin.py" />
+    <Compile Include="products\forms.py" />
+    <Compile Include="products\migrations\__init__.py" />
+    <Compile Include="products\models.py" />
+    <Compile Include="products\urls.py" />
+    <Compile Include="products\views.py" />
+    <Compile Include="products\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -51,57 +71,36 @@
     <Folder Include="app\static\app\content\" />
     <Folder Include="app\static\app\fonts\" />
     <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\js\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\orders\" />
+    <Folder Include="app\templates\products\" />
     <Folder Include="DjangoWebProject2\" />
-    <Folder Include="zipprey1\" />
-    <Folder Include="zipprey1\.git\" />
-    <Folder Include="zipprey1\.git\hooks\" />
-    <Folder Include="zipprey1\.git\info\" />
-    <Folder Include="zipprey1\.git\logs\" />
-    <Folder Include="zipprey1\.git\logs\refs\" />
-    <Folder Include="zipprey1\.git\logs\refs\heads\" />
-    <Folder Include="zipprey1\.git\logs\refs\remotes\" />
-    <Folder Include="zipprey1\.git\logs\refs\remotes\origin\" />
-    <Folder Include="zipprey1\.git\objects\" />
-    <Folder Include="zipprey1\.git\objects\info\" />
-    <Folder Include="zipprey1\.git\objects\pack\" />
-    <Folder Include="zipprey1\.git\refs\" />
-    <Folder Include="zipprey1\.git\refs\heads\" />
-    <Folder Include="zipprey1\.git\refs\remotes\" />
-    <Folder Include="zipprey1\.git\refs\remotes\origin\" />
-    <Folder Include="zipprey1\.git\refs\tags\" />
-    <Folder Include="zipprey1\.vs\" />
-    <Folder Include="zipprey1\.vs\zipprey1\" />
-    <Folder Include="zipprey1\.vs\zipprey1\v15\" />
-    <Folder Include="zipprey1\zipprey1\" />
-    <Folder Include="zipprey1\zipprey1\.git\" />
-    <Folder Include="zipprey1\zipprey1\.git\hooks\" />
-    <Folder Include="zipprey1\zipprey1\.git\info\" />
-    <Folder Include="zipprey1\zipprey1\.git\logs\" />
-    <Folder Include="zipprey1\zipprey1\.git\logs\refs\" />
-    <Folder Include="zipprey1\zipprey1\.git\logs\refs\heads\" />
-    <Folder Include="zipprey1\zipprey1\.git\logs\refs\remotes\" />
-    <Folder Include="zipprey1\zipprey1\.git\logs\refs\remotes\origin\" />
-    <Folder Include="zipprey1\zipprey1\.git\objects\" />
-    <Folder Include="zipprey1\zipprey1\.git\objects\info\" />
-    <Folder Include="zipprey1\zipprey1\.git\objects\pack\" />
-    <Folder Include="zipprey1\zipprey1\.git\refs\" />
-    <Folder Include="zipprey1\zipprey1\.git\refs\heads\" />
-    <Folder Include="zipprey1\zipprey1\.git\refs\remotes\" />
-    <Folder Include="zipprey1\zipprey1\.git\refs\remotes\origin\" />
-    <Folder Include="zipprey1\zipprey1\.git\refs\tags\" />
-    <Folder Include="zipprey1\zipprey1\.vs\" />
+    <Folder Include="orders\migrations\" />
+    <Folder Include="products\migrations\" />
+    <Folder Include="products_images\" />
+    <Folder Include="products\" />
+    <Folder Include="orders\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\js\scripts.js" />
     <Content Include="app\templates\app\anketa.html" />
     <Content Include="app\templates\app\blog.html" />
     <Content Include="app\templates\app\blogpost.html" />
+    <Content Include="app\templates\app\histori.html" />
     <Content Include="app\templates\app\links.html" />
+    <Content Include="app\templates\app\maga.html" />
     <Content Include="app\templates\app\newpost.html" />
+    <Content Include="app\templates\app\product_item.html" />
     <Content Include="app\templates\app\registration.html" />
+    <Content Include="app\templates\app\reklama.html" />
     <Content Include="app\templates\app\videopost.html" />
+    <Content Include="app\templates\orders\checkout.html" />
+    <Content Include="app\templates\products\carusel.html" />
+    <Content Include="app\templates\products\product.html" />
     <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />
@@ -130,67 +129,6 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
-    <Content Include="zipprey1\.gitignore" />
-    <Content Include="zipprey1\.git\config" />
-    <Content Include="zipprey1\.git\description" />
-    <Content Include="zipprey1\.git\HEAD" />
-    <Content Include="zipprey1\.git\hooks\applypatch-msg.sample" />
-    <Content Include="zipprey1\.git\hooks\commit-msg.sample" />
-    <Content Include="zipprey1\.git\hooks\fsmonitor-watchman.sample" />
-    <Content Include="zipprey1\.git\hooks\post-update.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-applypatch.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-commit.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-merge-commit.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-push.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-rebase.sample" />
-    <Content Include="zipprey1\.git\hooks\pre-receive.sample" />
-    <Content Include="zipprey1\.git\hooks\prepare-commit-msg.sample" />
-    <Content Include="zipprey1\.git\hooks\update.sample" />
-    <Content Include="zipprey1\.git\index" />
-    <Content Include="zipprey1\.git\info\exclude" />
-    <Content Include="zipprey1\.git\logs\HEAD" />
-    <Content Include="zipprey1\.git\logs\refs\heads\main" />
-    <Content Include="zipprey1\.git\logs\refs\remotes\origin\HEAD" />
-    <Content Include="zipprey1\.git\objects\pack\pack-ffc80043caf0cdb9170a0e7477d3d3e7eec81f32.idx" />
-    <Content Include="zipprey1\.git\objects\pack\pack-ffc80043caf0cdb9170a0e7477d3d3e7eec81f32.pack" />
-    <Content Include="zipprey1\.git\packed-refs" />
-    <Content Include="zipprey1\.git\refs\heads\main" />
-    <Content Include="zipprey1\.git\refs\remotes\origin\HEAD" />
-    <Content Include="zipprey1\.vs\ProjectSettings.json" />
-    <Content Include="zipprey1\.vs\slnx.sqlite" />
-    <Content Include="zipprey1\.vs\VSWorkspaceState.json" />
-    <Content Include="zipprey1\.vs\zipprey1\v15\.suo" />
-    <Content Include="zipprey1\README.md" />
-    <Content Include="zipprey1\zipprey1\.gitignore" />
-    <Content Include="zipprey1\zipprey1\.git\config" />
-    <Content Include="zipprey1\zipprey1\.git\description" />
-    <Content Include="zipprey1\zipprey1\.git\HEAD" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\applypatch-msg.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\commit-msg.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\fsmonitor-watchman.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\post-update.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-applypatch.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-commit.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-merge-commit.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-push.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-rebase.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\pre-receive.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\prepare-commit-msg.sample" />
-    <Content Include="zipprey1\zipprey1\.git\hooks\update.sample" />
-    <Content Include="zipprey1\zipprey1\.git\index" />
-    <Content Include="zipprey1\zipprey1\.git\info\exclude" />
-    <Content Include="zipprey1\zipprey1\.git\logs\HEAD" />
-    <Content Include="zipprey1\zipprey1\.git\logs\refs\heads\main" />
-    <Content Include="zipprey1\zipprey1\.git\logs\refs\remotes\origin\HEAD" />
-    <Content Include="zipprey1\zipprey1\.git\objects\pack\pack-ffc80043caf0cdb9170a0e7477d3d3e7eec81f32.idx" />
-    <Content Include="zipprey1\zipprey1\.git\objects\pack\pack-ffc80043caf0cdb9170a0e7477d3d3e7eec81f32.pack" />
-    <Content Include="zipprey1\zipprey1\.git\packed-refs" />
-    <Content Include="zipprey1\zipprey1\.git\refs\heads\main" />
-    <Content Include="zipprey1\zipprey1\.git\refs\remotes\origin\HEAD" />
-    <Content Include="zipprey1\zipprey1\.vs\ProjectSettings.json" />
-    <Content Include="zipprey1\zipprey1\.vs\slnx.sqlite" />
-    <Content Include="zipprey1\zipprey1\.vs\slnx.sqlite-journal" />
-    <Content Include="zipprey1\zipprey1\README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">

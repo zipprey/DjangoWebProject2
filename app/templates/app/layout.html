@@ -1,7 +1,6 @@
-﻿<!DOCTYPE html>© 2020 - сайт Цветкова Антона Евгеньевича 0024-01
-<html>     
+﻿<html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     {% load staticfiles %}
@@ -12,10 +11,9 @@
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
     <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
 </head>
-
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -24,22 +22,48 @@
                 </button>
                 <a href="/" class="navbar-brand"> <img src="{% static 'app/content/logo.jpg' %}" alt="logo" /> </a>
             </div>
-
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'home' %}">Главная</a></li>
-                    <li><a href="{% url 'links' %}">Полезное</a></li>
-                    <li><a href="{% url 'about' %}">О нас</a></li>
+                    <li><a href="{% url 'links' %}">Ребусы</a></li>
+                    <li><a href="{% url 'about' %}">Кто мы?</a></li>
                     <li><a href="{% url 'contact' %}">Контакты</a></li>
-                    <li><a href="{% url 'blog' %}">Блог</a></li>
-                    <li><a href="{% url 'anketa' %}">Оставить заявку</a></li>
+                    <li><a href="{% url 'blog' %}">Информация</a></li>
                     <li><a href="{% url 'videopost' %}">Видео</a></li>
+                    <li><a href="{% url 'maga' %}">Товары</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'histori' %}">История заказов</a></li>
+                    <li><a href="{% url 'anketa' %}">Помощь</a></li>
+                    {% endif %}
                 </ul>
                 {% include 'app/loginpartial.html' %}
-            </div>
-        </div>
-    </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="basket-container">
+                            <a href="{% url 'checkout' %}">Корзина <span id="basket_total_amount"></span><span id="basket_total_nmb">
+                                {% if products_total_nmb %}
+                                    ({{ products_total_nmb }})
+                                {% else %}
+                                    (0)
+                                {% endif %}
+                            </span></a>
+                        <div class="basket-items hidden">
+                            <ul class="">
+                                {% for product_in_basket in products_in_basket %}
+                                    <li>
+                                        {{ product_in_basket.product.name }} {{ product_in_basket.nmb }} шт.
+                                        по {{ product_in_basket.price_per_item }} руб.
+                                        <a class="delete-item" href="" data-product_id="{{ product_in_basket.id }}">x</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        </div>
+                    </li>
 
+                </ul>
+            </div>  
+    </div>
     <div class="container body-content">
 {% block content %}{% endblock %}
         <hr/>
@@ -51,6 +75,10 @@
     <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
     <script src="{% static 'app/scripts/respond.js' %}"></script>
 {% block scripts %}{% endblock %}
-
+        <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

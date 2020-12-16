@@ -33,10 +33,11 @@ class AnketaForm(forms.Form):
                                 widget=forms.Textarea(attrs={'rows':12, 'cols':20}))
     telephone = forms.CharField(label='Оставьте ваш номер телефона,и мы свяжемся с вами',min_length=10, max_length=12)
 
+
 class CommentForm (forms.ModelForm):
     class Meta:
         model = Comment # используемая модель
-        fields = ('text',) # требуется заполнить только поле text     
+        fields = ('text',) # требуется заполнить только поле text
         labels = {'text': "Комментарий"} # метка к полю формы text
 
 class BlogForm (forms.ModelForm):

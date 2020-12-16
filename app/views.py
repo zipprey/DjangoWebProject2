@@ -13,7 +13,8 @@ from .models import Blog
 from .models import Comment # использование модели комментариев
 from .forms import CommentForm
 from .forms import BlogForm
-
+from products.models import *
+from orders.models import *
 
 def home(request):
     """Renders the home page."""
@@ -97,6 +98,7 @@ def anketa(request):
             'data':data
         }
         )
+
 
 def registration(request):
     """Renders the registration page."""
@@ -187,7 +189,7 @@ def newpost(request):
         'app/newpost.html',
         {
             'title':'Добавление статьи',
-            'blogform': blogform, 
+            'blogform': blogform,
             'year':datetime.now().year,
         }
     )
@@ -203,3 +205,13 @@ def videopost(request):
             'year':datetime.now().year,
         }
     )
+def maga(request):
+    products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
+    products_images_new = products_images.filter(product__category__id=1)
+    products_images_by = products_images.filter(product__category__id=2)
+    return render(request, 'app/maga.html', locals())
+
+def histori(request):
+    session_key = request.session.session_key
+    products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=False)
+    return render(request, 'app/histori.html', locals())
